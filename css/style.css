@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --primary-color: #DDDDDD;
+    --secondary-color: #F5F5F5;
+    --accent-color: #4b70d4;
+
+    --body-font: "Fira Sans", sans-serif;
+    --heading-font: "Playfair Display", serif;
+}
+
+* {
+    font-family: var(--body-font);
+    font-size: 1rem;
+}
+
+body {
+    background-color: var(--accent-color);
+    background: url(../img/whiteclouds.jpg) no-repeat;
+    /* https://www.pexels.com/photo/white-cumulus-clouds-2097628/ */
+    background-size: cover;
+}
+
+main {
+    border-radius: 4px;
+    margin: auto;
+    padding: 1.5rem;
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        margin-bottom: 24px;
+        display: inline-block;
+        border: 2px solid var(--accent-color);
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        min-height: 3.5rem;
+        max-height: 35rem;
+        min-width: 100%;
+        max-width: fit-content;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        background-color: var(--accent-color);
+    }
+}
+
+form {
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    padding: 0 1rem 1rem;
+
+    legend {
+        font-size: 2rem;
+        font-family: var(--heading-font);
+        font-weight: 500;
+        /* color: var(--accent-color); */   
+        padding: 1.5rem 0;
+        margin: 1rem 0;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+@media (min-width: 25rem) {
+    form {
+        padding-bottom: 0;
+
+        display: grid;
+        align-content: end;
+        column-gap: 1rem;
+        grid-template-areas:
+            "legend legend"
+            "lname lemail"
+            "name email"
+            "lmsg lmsg"
+            "msg msg"
+            "sub sub";
+
+        legend {
+            grid-area: legend;
+            width: 20rem;
+            justify-self: left;
+        }
+
+        label[for="name"] {
+            grid-area: lname;
+        }
+
+        #name {
+            grid-area: name;
+        }
+
+        label[for="email"] {
+            grid-area: lemail;
+        }
+
+        #email {
+            grid-area: email;
+        }
+
+        label[for="msg"] {
+            grid-area: lmsg;
+        }
+
+        textarea {
+            grid-area: msg;
+            max-width: fit-content;
+        }
+
+        input[type="submit"] {
+            width: 8rem;
+            grid-area: sub;
+            justify-self: left;
+        }
+    }
+}
+
+@media (min-width: 40rem) {
+    main {
+        max-width: 50rem;
+    }
+}
